@@ -8,25 +8,30 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 管理员
+ * 商品分类
  */
 @Data
-public class Admin implements Serializable {
+public class Category implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     private Long id;
 
-    //账号
-    private String username;
+    //分类名称
+    private String name;
 
-    //密码
-    private String password;
+    //顺序
+    private Integer sort;
 
-    //公共字段填充——创建时间
+    //创建时间
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    //公共字段填充——更新时间
+    //更新时间
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
+
+//    //是否删除
+//    private Integer isDeleted;
+
 }

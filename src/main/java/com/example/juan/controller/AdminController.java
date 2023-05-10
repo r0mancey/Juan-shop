@@ -1,14 +1,12 @@
 package com.example.juan.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.juan.common.R;
 import com.example.juan.entity.Admin;
 import com.example.juan.service.AdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
@@ -79,7 +77,6 @@ public class AdminController {
      */
     @ApiOperation("修改管理员信息（除密码外）")
     @PutMapping
-    //前端传来的ID是字符串，但封装到admin对象中时已经转成了Long（不知道怎样做到的？）
     public R<String> update(@RequestBody Admin admin){
         //执行更新操作
         adminService.updateById(admin);
