@@ -24,8 +24,6 @@ public class CategoryController {
 
     /**
      * 新增分类
-     * @param category
-     * @return
      */
     @ApiOperation("新增分类")
     @PostMapping
@@ -36,15 +34,12 @@ public class CategoryController {
 
     /**
      * 分类信息分页查询
-     * @param page
-     * @param pageSize
-     * @return
      */
     @ApiOperation("分类信息分页查询")
     @GetMapping("/page")
-    public R<Page> page(int page, int pageSize){
+    public R<Page<Category>> page(int page, int pageSize){
         //构造分页构造器
-        Page<Category> pageInfo = new Page(page, pageSize);
+        Page<Category> pageInfo = new Page<>(page, pageSize);
 
         //构造条件过滤器
         LambdaQueryWrapper<Category> queryWrapper = new LambdaQueryWrapper<>();
@@ -59,8 +54,6 @@ public class CategoryController {
 
     /**
      * 删除分类
-     * @param id
-     * @return
      */
     @ApiOperation("删除分类")
     @DeleteMapping
@@ -73,8 +66,6 @@ public class CategoryController {
 
     /**
      * 修改分类信息
-     * @param category
-     * @return
      */
     @ApiOperation("修改分类信息")
     @PutMapping

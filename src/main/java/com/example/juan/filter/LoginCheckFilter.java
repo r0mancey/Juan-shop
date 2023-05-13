@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//todo:用户端拦截
+
 @Slf4j
 @WebFilter(filterName = "loginCheckFilter", urlPatterns = "/*")
 public class LoginCheckFilter implements Filter {
@@ -58,9 +60,9 @@ public class LoginCheckFilter implements Filter {
 
     /**
      * 路径匹配，检查当前请求是否是不需要处理的请求
-     * @param urls
-     * @param requestURI
-     * @return
+     * @param urls 不需要处理的路径
+     * @param requestURI 请求路径
+     * @return 不需要处理返回true，否则返回false
      */
     public boolean check(String[] urls,String requestURI){
         for (String url : urls) {

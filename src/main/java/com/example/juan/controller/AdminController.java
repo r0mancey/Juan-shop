@@ -24,9 +24,6 @@ public class AdminController {
 
     /**
      * 管理员登录
-     * @param request
-     * @param admin
-     * @return
      */
     @ApiOperation("管理员登录")
     @PostMapping("/login")
@@ -58,13 +55,11 @@ public class AdminController {
 
     /**
      * 管理员登出
-     * @param request
-     * @return
      */
     @ApiOperation("管理员登出")
     @PostMapping("/logout")
     public R<String> logout(HttpServletRequest request){
-        //清理Session中保存的员工id
+        //清理Session中保存的管理员id
         request.getSession().removeAttribute("admin");
         return R.success("登出成功");
     }
@@ -72,8 +67,6 @@ public class AdminController {
 
     /**
      * 修改管理员信息（除密码外）
-     * @param admin
-     * @return
      */
     @ApiOperation("修改管理员信息（除密码外）")
     @PutMapping
@@ -86,8 +79,6 @@ public class AdminController {
 
     /**
      * 修改密码
-     * @param admin
-     * @return
      */
     @ApiOperation("修改密码")
     @PutMapping("/updatePassword")
@@ -103,8 +94,6 @@ public class AdminController {
 
     /**
      * 根据ID查管理员信息
-     * @param id
-     * @return
      */
     @ApiOperation("根据ID查管理员信息")
     @GetMapping("/{id}")

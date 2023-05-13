@@ -49,6 +49,7 @@ public class GoodsController {
     @ApiOperation("删除商品")
     @DeleteMapping
     public R<String> delete(Long id){
+        //todo：删除商品对应图片
         goodsService.removeById(id);
 
         return R.success("商品删除成功");
@@ -65,16 +66,11 @@ public class GoodsController {
         return R.success("修改成功");
     }
 
-    /**
-     * todo:库存修改
-     */
-//    public R<String> stockUpdate()
+    //todo:库存修改
+    //public R<String> updateStock()
 
     /**
      * 更改商品停起售状态（可批量）
-     * @param status
-     * @param ids
-     * @return
      */
     @ApiOperation("更改商品停起售状态（可批量）")
     @PostMapping("/status/{status}")
@@ -96,7 +92,6 @@ public class GoodsController {
      * 根据 分类Id 或 名称 查询商品
      * @param categoryId 分类id（可选）
      * @param name 商品名称（可选）
-     * @return
      */
     @ApiOperation("根据分类Id或名称查询")
     @GetMapping("/list")
